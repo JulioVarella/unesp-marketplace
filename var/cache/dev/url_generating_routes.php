@@ -16,5 +16,9 @@ return [
     '_profiler_router' => [['token'], ['_controller' => 'web_profiler.controller.router::panelAction'], [], [['text', '/router'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], [], []],
     '_profiler_exception' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::body'], [], [['text', '/exception'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], [], []],
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], [], []],
-    'app_food' => [['id'], ['_controller' => 'App\\Controller\\FoodController::index'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/foods']], [], [], []],
+    'app_food' => [[], ['_controller' => 'App\\Controller\\FoodController::new'], [], [['text', '/food/new']], [], [], []],
+    'app_homepage' => [[], ['_controller' => 'App\\Controller\\FoodController::homePage'], [], [['text', '/']], [], [], []],
+    'app_browse' => [['slug'], ['slug' => null, '_controller' => 'App\\Controller\\FoodController::browse'], [], [['variable', '/', '[^/]++', 'slug', true], ['text', '/browse']], [], [], []],
+    'app_login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], [], []],
+    'app_logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], [], []],
 ];

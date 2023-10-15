@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container">
+{#    <h1>Browse {{ genre ? genre : 'All Genres' }}</h1>#}
+    <h1>Pesquisar </h1>
+    <div class="input-group mb-3">
+        <input type="text" id="search" name="search" class="input-group-search">
+        <button class="btn btn-outline-primary" type="button" id="button-addon2">Buscar</button>
+    </div>
+    <h2 class="mt-5 mb-4">Filtrar por categoria</h2>
+    <ul class="genre-list ps-0 mt-2 mb-3">
+        <li class="d-inline">
+            <a class="btn btn-primary btn-sm" href="{{ path('app_browse', {
+                slug: 'doces'
+            }) }}">Doces</a>
+        </li>
+        <li class="d-inline">
+            <a class="btn btn-primary btn-sm" href="{{ path('app_browse', {
+                slug: 'salgados'
+            }) }}">Salgados</a>
+        </li>
+    </ul>
+
+    <div>
+        <h2 class="mt-5">Comidas</h2>
+        <turbo-frame id="mix-browse-list" target="_top">
+            <div class="row">
+                {% for food in foods %}
+                <div class="col col-md-4">
+                    <div href="" class="mixed-vinyl-container p-3 text-center">
+                        <div class="square-image">
+                        <img src="{{ asset(food.imagePath) }}" alt="">
+                        </div>
+                            <p class="mt-2"><strong>{{ food.name }}</strong></p>
+                            <span>R${{ food.price }}.00</span>
+                            <span>{{ food.description }}</span>
+                        <div class="seller-info">
+                            <span class="seller-name">Vendedor: nome</span>
+                            <a href="" class="btn btn-primary seller-link" type="button" id="button-addon2">Ver Perfil</a>
+
+                        </div>
+
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </turbo-frame>
+    </div>
+</div>
+{% endblock %}
