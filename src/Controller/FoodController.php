@@ -46,7 +46,7 @@ class FoodController extends AbstractController
     }
 
     //homepage
-    #[Route('/', name: 'app_homepage')]
+    #[Route('/browse', name: 'app_browse')]
     public function homePage(): Response
     {
         return $this->render('food/index.html.twig', [
@@ -54,7 +54,7 @@ class FoodController extends AbstractController
         ]);
     }
 
-    #[Route('/browse/{slug}', name: 'app_browse')]
+    #[Route('/{slug}', name: 'app_homepage')]
     public function browse(string $slug = null): Response
     {
         $foodRepository = $this->entityManager->getRepository(Food::class);
