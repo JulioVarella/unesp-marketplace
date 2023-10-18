@@ -30,8 +30,9 @@ class Seller
     #[ORM\Column(length: 255)]
     private ?string $availability = null;
 
-    #[ORM\OneToMany(mappedBy: 'seller', targetEntity: Food::class, orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'seller', targetEntity: Food::class)]
     private Collection $foods;
+
 
     public function __construct()
     {
@@ -132,4 +133,5 @@ class Seller
 
         return $this;
     }
+
 }
