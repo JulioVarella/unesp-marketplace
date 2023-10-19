@@ -49,8 +49,17 @@ class FoodController extends AbstractController
     #[Route('/', name: 'app_homepage')]
     public function homePage(): Response
     {
+        $sellerRepository = $this->entityManager->getRepository(Seller::class);
+        $seller = $sellerRepository->findBy(['id' => 1]);
+
+        $foods = $seller[0]->getFoods();
+//        foreach ($foods as $food) {
+//            dump($food);
+//        }
+
         return $this->render('food/index.html.twig', [
             'title' => 'PB & Jams',
+            'foods' => $foods,
         ]);
     }
 
@@ -59,6 +68,7 @@ class FoodController extends AbstractController
     {
         $foodRepository = $this->entityManager->getRepository(Food::class);
         $foods = $foodRepository->findAllFoods();
+//        dd($foods[0]->getSeller()->getName());
 
         return $this->render('food/browse.html.twig', [
             'foods' => $foods,

@@ -13,6 +13,13 @@
 
     <h2>food id: {{ dump() }} </h2>
 
+
+    <h2>food id:
+
+    {%  for food in foods %}
+        {{ dump(food) }}
+        {% endfor %}</h2>
+
     This friendly message is coming from:aa
     <ul>
         <li>Your controller at <code><a href="{{ 'E:/website-skeleton/src/Controller/FoodController.php'|file_link(0) }}">src/Controller/FoodController.php</a></code></li>

@@ -109,3 +109,17 @@ body {
     max-width: 400px;
     margin: 0 auto;
 }
+
+.image-wrapper {
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: green;
+    color: white;
+    padding: 5px 10px; /* Adjust as needed */
+    border-radius: 0 0 0 10px; /* Adjust as needed for a rounded corner */
+}

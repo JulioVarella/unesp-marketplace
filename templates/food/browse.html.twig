@@ -1,4 +1,6 @@
 {% extends 'base.html.twig' %}
+{% set now = date() %}
+
 
 {% block body %}
 <div class="container">
@@ -27,23 +29,26 @@
         <turbo-frame id="mix-browse-list" target="_top">
             <div class="row">
                 {% for food in foods %}
-                <div class="col col-md-4">
-                    <div href="" class="mixed-vinyl-container p-3 text-center">
-                        <div class="square-image">
-                        <img src="{{ asset(food.imagePath) }}" alt="">
-                        </div>
+                    <div class="col col-md-4">
+                        <div href="" class="mixed-vinyl-container p-3 text-center">
+                            <div class="square-image image-wrapper">
+                                <img src="{{ asset(food.imagePath) }}" alt="">
+                                {% set hoursSinceAdded = (now|date("U") - food.createdAt|date("U")) / 3600 %}
+                                {% if hoursSinceAdded < 24 %}
+                                    <span class="overlay">Adicionado {{ food.createdAt|ago(locale='pt') }}</span>
+                                {% endif %}
+                            </div>
                             <p class="mt-2"><strong>{{ food.name }}</strong></p>
                             <span>R${{ food.price }}.00</span>
                             <span>{{ food.description }}</span>
-                        <div class="seller-info">
-                            <span class="seller-name">Vendedor: nome</span>
-                            <a href="" class="btn btn-primary seller-link" type="button" id="button-addon2">Ver Perfil</a>
-
+                            <div class="seller-info">
+                                <span class="seller-name">Vendedor: {{ food.seller.name |title }}</span>
+                                <a href="" class="btn btn-primary seller-link" type="button" id="button-addon2">Ver Perfil</a>
+                            </div>
                         </div>
-
                     </div>
-                </div>
                 {% endfor %}
+
 
             </div>
         </turbo-frame>
