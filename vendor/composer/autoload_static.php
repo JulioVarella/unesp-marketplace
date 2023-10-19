@@ -16,9 +16,9 @@ class ComposerStaticInitd0cc79304852e6d4a9aa3508f55cc8c2
         'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '6a47392539ca2329373e0d33e1dba053' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/bootstrap.php',
+        'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
         'ec07570ca5a812141189b1fa81503674' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert/Functions.php',
         '92c8763cd6170fce6fcfe7e26b4e8c10' => __DIR__ . '/..' . '/symfony/phpunit-bridge/bootstrap.php',
-        'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
         '4f9a1929b39ff2a6c1016427077d16f5' => __DIR__ . '/..' . '/zenstruck/foundry/src/functions.php',
     );
 
@@ -127,6 +127,10 @@ class ComposerStaticInitd0cc79304852e6d4a9aa3508f55cc8c2
             'Monolog\\' => 8,
             'Masterminds\\' => 12,
         ),
+        'K' => 
+        array (
+            'Knp\\Bundle\\TimeBundle\\' => 22,
+        ),
         'F' => 
         array (
             'Faker\\' => 6,
@@ -174,8 +178,8 @@ class ComposerStaticInitd0cc79304852e6d4a9aa3508f55cc8c2
         ),
         'Zenstruck\\' => 
         array (
-            0 => __DIR__ . '/..' . '/zenstruck/callback/src',
-            1 => __DIR__ . '/..' . '/zenstruck/assert/src',
+            0 => __DIR__ . '/..' . '/zenstruck/assert/src',
+            1 => __DIR__ . '/..' . '/zenstruck/callback/src',
         ),
         'Webmozart\\Assert\\' => 
         array (
@@ -497,6 +501,10 @@ class ComposerStaticInitd0cc79304852e6d4a9aa3508f55cc8c2
         array (
             0 => __DIR__ . '/..' . '/masterminds/html5/src',
         ),
+        'Knp\\Bundle\\TimeBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/knplabs/knp-time-bundle/src',
+        ),
         'Faker\\' => 
         array (
             0 => __DIR__ . '/..' . '/fakerphp/faker/src/Faker',
@@ -582,14 +590,18 @@ class ComposerStaticInitd0cc79304852e6d4a9aa3508f55cc8c2
 
     public static $classMap = array (
         'App\\Controller\\FoodController' => __DIR__ . '/../..' . '/src/Controller/FoodController.php',
+        'App\\Controller\\RegistrationController' => __DIR__ . '/../..' . '/src/Controller/RegistrationController.php',
+        'App\\Controller\\SecurityController' => __DIR__ . '/../..' . '/src/Controller/SecurityController.php',
         'App\\Entity\\Food' => __DIR__ . '/../..' . '/src/Entity/Food.php',
         'App\\Entity\\Seller' => __DIR__ . '/../..' . '/src/Entity/Seller.php',
         'App\\Entity\\User' => __DIR__ . '/../..' . '/src/Entity/User.php',
+        'App\\Form\\RegistrationFormType' => __DIR__ . '/../..' . '/src/Form/RegistrationFormType.php',
         'App\\Kernel' => __DIR__ . '/../..' . '/src/Kernel.php',
         'App\\Repository\\FoodCategoryRepository' => __DIR__ . '/../..' . '/src/Repository/FoodCategoryRepository.php',
         'App\\Repository\\FoodRepository' => __DIR__ . '/../..' . '/src/Repository/FoodRepository.php',
         'App\\Repository\\SellerRepository' => __DIR__ . '/../..' . '/src/Repository/SellerRepository.php',
         'App\\Repository\\UserRepository' => __DIR__ . '/../..' . '/src/Repository/UserRepository.php',
+        'App\\Security\\UserAuthenticator' => __DIR__ . '/../..' . '/src/Security/UserAuthenticator.php',
         'Collator' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/Resources/stubs/Collator.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'DeepCopy\\DeepCopy' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',
@@ -2380,6 +2392,10 @@ class ComposerStaticInitd0cc79304852e6d4a9aa3508f55cc8c2
         'Faker\\UniqueGenerator' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/UniqueGenerator.php',
         'Faker\\ValidGenerator' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/ValidGenerator.php',
         'IntlDateFormatter' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/Resources/stubs/IntlDateFormatter.php',
+        'Knp\\Bundle\\TimeBundle\\DateTimeFormatter' => __DIR__ . '/..' . '/knplabs/knp-time-bundle/src/DateTimeFormatter.php',
+        'Knp\\Bundle\\TimeBundle\\DependencyInjection\\KnpTimeExtension' => __DIR__ . '/..' . '/knplabs/knp-time-bundle/src/DependencyInjection/KnpTimeExtension.php',
+        'Knp\\Bundle\\TimeBundle\\KnpTimeBundle' => __DIR__ . '/..' . '/knplabs/knp-time-bundle/src/KnpTimeBundle.php',
+        'Knp\\Bundle\\TimeBundle\\Twig\\Extension\\TimeExtension' => __DIR__ . '/..' . '/knplabs/knp-time-bundle/src/Twig/Extension/TimeExtension.php',
         'Locale' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/Resources/stubs/Locale.php',
         'Masterminds\\HTML5' => __DIR__ . '/..' . '/masterminds/html5/src/HTML5.php',
         'Masterminds\\HTML5\\Elements' => __DIR__ . '/..' . '/masterminds/html5/src/HTML5/Elements.php',
