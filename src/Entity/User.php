@@ -29,6 +29,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?string $password = null;
 
+    #[ORM\OneToOne(mappedBy: 'owner', cascade: ['persist', 'remove'])]
+    private ?Seller $seller = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -97,5 +100,22 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getSeller(): ?Seller
+    {
+        return $this->seller;
+    }
+
+    public function setSeller(Seller $seller): static
+    {
+        // set the owning side of the relation if necessary
+        if ($seller->getOwner() !== $this) {
+            $seller->setOwner($this);
+        }
+
+        $this->seller = $seller;
+
+        return $this;
     }
 }

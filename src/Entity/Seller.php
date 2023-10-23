@@ -33,6 +33,10 @@ class Seller
     #[ORM\OneToMany(mappedBy: 'seller', targetEntity: Food::class)]
     private Collection $foods;
 
+    #[ORM\OneToOne(inversedBy: 'seller', cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $owner = null;
+
 
     public function __construct()
     {
@@ -130,6 +134,18 @@ class Seller
                 $food->setSeller(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getOwner(): ?User
+    {
+        return $this->owner;
+    }
+
+    public function setOwner(User $owner): static
+    {
+        $this->owner = $owner;
 
         return $this;
     }
