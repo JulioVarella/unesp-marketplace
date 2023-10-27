@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+{% set now = date() %}
+{% block title %}Food index{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Pesquisar</h1>
+        <div class="input-group mb-3">
+            <input type="text" id="search" name="search" class="input-group-search">
+            <button class="btn btn-outline-primary" type="button" id="button-addon2">Buscar</button>
+        </div>
+
+        <h2 class="mt-5 mb-4">Filtrar por categoria</h2>
+        <ul class="genre-list ps-0 mt-2 mb-3">
+            <li class="d-inline">
+                <a class="btn btn-primary btn-sm" href="{{ path('app_browse', {
+                    slug: 'doces'
+                }) }}">Doces</a>
+            </li>
+            <li class="d-inline">
+                <a class="btn btn-primary btn-sm" href="{{ path('app_browse', {
+                    slug: 'salgados'
+                }) }}">Salgados</a>
+            </li>
+        </ul>
+
+        <h2 class="mt-5">Comidas</h2>
+        <div class="mt-4">
+            <a href="{{ path('app_food_item_new') }}" class="btn btn-success">Create new</a>
+        </div>
+        <div class="row">
+            {% for foodItem in food %}
+                <div class="col col-md-4">
+                    <div class="mixed-vinyl-container p-3 text-center">
+                        <div class="square-image image-wrapper">
+                            <img src="{{ asset(foodItem.imagePath) }}" alt="">
+                            {% set hoursSinceAdded = (now|date("U") - foodItem.createdAt|date("U")) / 3600 %}
+                            {% if hoursSinceAdded < 24 %}
+                                <span class="overlay">Adicionado {{ foodItem.createdAt|ago(locale='pt') }}</span>
+                            {% endif %}
+                        </div>
+                        <p class="mt-2"><strong>{{ foodItem.name }}</strong></p>
+                        <span>R${{ foodItem.price }}.00</span>
+                        <span>{{ foodItem.description }}</span>
+                        <div class="seller-info">
+                            <span class="seller-name">Vendedor: {{ foodItem.seller.name | title }}</span>
+                            <a href="{{ path('app_food_item_show', {'id': foodItem.id}) }}" class="btn btn-primary seller-link">Ver</a>
+                            <a href="{{ path('app_food_item_edit', {'id': foodItem.id}) }}" class="btn btn-secondary seller-link">Editar</a>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="col-12">
+                    <p>No records found</p>
+                </div>
+            {% endfor %}
+        </div>
+
+
+    </div>
+{% endblock %}
+

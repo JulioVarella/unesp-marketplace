@@ -52,10 +52,11 @@ class FoodController extends AbstractController
         $sellerRepository = $this->entityManager->getRepository(Seller::class);
         $seller = $sellerRepository->findBy(['id' => 1]);
 
-        $foods = $seller[0]->getFoods();
+//        $foods = $seller[0]->getFoods();
 //        foreach ($foods as $food) {
 //            dump($food);
 //        }
+        $foods =1;
 
         return $this->render('food/index.html.twig', [
             'title' => 'PB & Jams',

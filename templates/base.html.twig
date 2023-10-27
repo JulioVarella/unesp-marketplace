@@ -23,7 +23,6 @@
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #27333A;">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ path('app_homepage') }}">
-{#                <i class="fas fa-record-vinyl"></i>#}
                 <img src="{{ asset('images/unesp.png') }}" alt="Logo" style="width: 50px; height: 50px;">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,6 +43,11 @@
                         {% endif %}
                     </li>
                     <li class="nav-item">
+                        {% if app.user %}
+                            <a href="{{ path('app_food_item_new') }}" class="nav-link btn-primary" style="margin-top: 20px;">Criar Anúncio</a>
+                        {% endif %}
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" style="margin-top: 20px;" href="{{ path('app_browse') }}">Pesquisar Comidas</a>
                     </li>
 
@@ -52,15 +56,15 @@
                     <!-- End Not Authenticated -->
 
                     <!-- If Authenticated -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fas fa-user p-2" style="border: solid 1px #fff; border-radius: 50px; font-size: 40px;"></i>
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">My Mixes</a></li>
-                            <li><a class="dropdown-item" href="#">Signout</a></li>
-                        </ul>
-                    </li>
+{#                    <li class="nav-item dropdown">#}
+{#                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">#}
+{#                            <i class="fas fa-user p-2" style="border: solid 1px #fff; border-radius: 50px; font-size: 40px;"></i>#}
+{#                        </a>#}
+{#                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">#}
+{#                            <li><a class="dropdown-item" href="#">My Mixes</a></li>#}
+{#                            <li><a class="dropdown-item" href="#">Signout</a></li>#}
+{#                        </ul>#}
+{#                    </li>#}
                     <!-- End If Authenticated -->
                 </ul>
             </div>
